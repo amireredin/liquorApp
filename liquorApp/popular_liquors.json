@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Johnnie Walker Black Label",
+    "type": "Whiskey",
+    "brand": "Johnnie Walker",
+    "description": "A blended Scotch whisky with smoky and sweet flavors.",
+    "pairings": {
+      "snacks": ["Dark chocolate", "Smoked nuts"],
+      "foods": ["Grilled steak", "Cheese platter"]
+    }
+  },
+  {
+    "name": "Jack Daniel's Old No. 7",
+    "type": "Whiskey",
+    "brand": "Jack Daniel's",
+    "description": "A Tennessee whiskey with notes of caramel, vanilla, and oak.",
+    "pairings": {
+      "snacks": ["Peanuts", "BBQ chips"],
+      "foods": ["Pulled pork", "Beef brisket"]
+    }
+  },
+  {
+    "name": "Jameson Irish Whiskey",
+    "type": "Whiskey",
+    "brand": "Jameson",
+    "description": "A smooth Irish whiskey with hints of vanilla, nuts, and spices.",
+    "pairings": {
+      "snacks": ["Cheddar cheese", "Salted almonds"],
+      "foods": ["Fish and chips", "Roast chicken"]
+    }
+  },
+  {
+    "name": "Absolut Vodka",
+    "type": "Vodka",
+    "brand": "Absolut",
+    "description": "A clean and smooth vodka with subtle hints of grain and fruit.",
+    "pairings": {
+      "snacks": ["Olives", "Pickles"],
+      "foods": ["Smoked salmon", "Caviar"]
+    }
+  },
+  {
+    "name": "Grey Goose",
+    "type": "Vodka",
+    "brand": "Grey Goose",
+    "description": "A premium vodka known for its crisp and smooth taste.",
+    "pairings": {
+      "snacks": ["Crackers", "Cheese sticks"],
+      "foods": ["Seafood pasta", "Lobster"]
+    }
+  },
+  {
+    "name": "Tito's Handmade Vodka",
+    "type": "Vodka",
+    "brand": "Tito's",
+    "description": "An American vodka distilled from corn, with a slightly sweet finish.",
+    "pairings": {
+      "snacks": ["Popcorn", "Pretzels"],
+      "foods": ["Grilled shrimp", "Caesar salad"]
+    }
+  },
+  {
+    "name": "Hendrick's Gin",
+    "type": "Gin",
+    "brand": "Hendrick's",
+    "description": "A unique gin with infusions of cucumber and rose petals.",
+    "pairings": {
+      "snacks": ["Cucumber sandwiches", "Goat cheese"],
+      "foods": ["Oysters", "Sushi"]
+    }
+  },
+  {
+    "name": "Tanqueray London Dry Gin",
+    "type": "Gin",
+    "brand": "Tanqueray",
+    "description": "A classic London dry gin with a balance of juniper and botanicals.",
+    "pairings": {
+      "snacks": ["Mixed nuts", "Lemon crisps"],
+      "foods": ["Grilled fish", "Herb-roasted chicken"]
+    }
+  },
+  {
+    "name": "Bombay Sapphire",
+    "type": "Gin",
+    "brand": "Bombay Sapphire",
+    "description": "A premium gin with a blend of 10 botanicals for a smooth, aromatic flavor.",
+    "pairings": {
+      "snacks": ["Cheese straws", "Seaweed chips"],
+      "foods": ["Grilled scallops", "Thai curry"]
+    }
+  },
+  {
+    "name": "Patrón Silver",
+    "type": "Tequila",
+    "brand": "Patrón",
+    "description": "A smooth silver tequila with light citrus and pepper flavors.",
+    "pairings": {
+      "snacks": ["Tortilla chips", "Guacamole"],
+      "foods": ["Tacos", "Grilled fish"]
+    }
+  },
+  {
+    "name": "Casamigos Reposado",
+    "type": "Tequila",
+    "brand": "Casamigos",
+    "description": "A reposado tequila with notes of caramel, vanilla, and oak.",
+    "pairings": {
+      "snacks": ["Sweet potato chips", "Queso dip"],
+      "foods": ["Chicken enchiladas", "Grilled shrimp"]
+    }
+  },
+  {
+    "name": "Don Julio 1942",
+    "type": "Tequila",
+    "brand": "Don Julio",
+    "description": "A luxury tequila with rich caramel and vanilla flavors.",
+    "pairings": {
+      "snacks": ["Dark chocolate", "Spiced almonds"],
+      "foods": ["Steak fajitas", "Chocolate mousse"]
+    }
+  },
+  {
+    "name": "Bacardi Superior",
+    "type": "Rum",
+    "brand": "Bacardi",
+    "description": "A white rum with subtle vanilla and almond flavors.",
+    "pairings": {
+      "snacks": ["Coconut chips", "Pineapple slices"],
+      "foods": ["Grilled shrimp", "Mojito chicken"]
+    }
+  },
+  {
+    "name": "Captain Morgan Spiced Rum",
+    "type": "Rum",
+    "brand": "Captain Morgan",
+    "description": "A spiced rum with hints of vanilla, cinnamon, and clove.",
+    "pairings": {
+      "snacks": ["Ginger cookies", "Caramel popcorn"],
+      "foods": ["BBQ ribs", "Curry chicken"]
+    }
+  },
+  {
+    "name": "Hennessy VS",
+    "type": "Cognac",
+    "brand": "Hennessy",
+    "description": "A classic cognac with notes of toasted almond and fresh grapes.",
+    "pairings": {
+      "snacks": ["Dark chocolate", "Walnuts"],
+      "foods": ["Beef stew", "Crème brûlée"]
+    }
+  }
+]
