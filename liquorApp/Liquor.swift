@@ -24,7 +24,7 @@ class Liquor: Identifiable, Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case name, type, brand, details, pairings, imageFileName
+        case id, name, type, brand, details, pairings, imageFileName
     }
     
     init(name: String, type: String, brand: String, details: String,
@@ -38,6 +38,7 @@ class Liquor: Identifiable, Codable {
         self.imageFileName = imageFileName
     }
     
+    // MARK: - Decodable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = UUID()
@@ -46,6 +47,19 @@ class Liquor: Identifiable, Codable {
         self.brand = try container.decode(String.self, forKey: .brand)
         self.details = try container.decode(String.self, forKey: .details)
         self.pairings = try container.decode(Pairings.self, forKey: .pairings)
+        self.imageFileName = try container.decodeIfPresent(String.self, forKey: .imageFileName)
+    }
+    
+    // MARK: - Encodable
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(type, forKey: .type)
+        try container.encode(brand, forKey: .brand)
+        try container.encode(details, forKey: .details)
+        try container.encode(pairings, forKey: .pairings)
+        try container.encodeIfPresent(imageFileName, forKey: .imageFileName)
     }
 }
 
@@ -61,7 +75,8 @@ extension Liquor {
                 pairings: Pairings(
                     snacks: ["Dark chocolate", "Smoked nuts"],
                     foods: ["Grilled steak", "Cheese platter"]
-                )
+                ),
+                imageFileName: "johnnie_walker_black_label.jpg"
             )
         ]
     }
