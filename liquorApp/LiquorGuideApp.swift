@@ -15,7 +15,7 @@ struct LiquorGuideApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Liquor.self])
+        .modelContainer(for: [Liquor.self]) // SwiftData model container
     }
 }
 
