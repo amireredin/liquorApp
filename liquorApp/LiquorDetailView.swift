@@ -14,29 +14,58 @@ struct LiquorDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text(liquor.name).font(.largeTitle).fontWeight(.bold)
-                Text(liquor.brand).font(.title2).foregroundColor(.secondary)
-                Text("Type: \(liquor.type)").font(.subheadline).foregroundColor(.secondary)
+                // Liquor Name
+                Text(liquor.name)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .accessibilityLabel("Liquor Name: \(liquor.name)")
                 
-                Section(header: Text("About").font(.headline)) {
+                // Liquor Brand
+                Text(liquor.brand)
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+                    .accessibilityLabel("Brand: \(liquor.brand)")
+                
+                // Liquor Type
+                Text("Type: \(liquor.type)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .accessibilityLabel("Type: \(liquor.type)")
+
+                // About Section
+                Section(header: Text("About")
+                    .font(.headline)
+                    .accessibilityLabel("About Section")) {
                     Text(liquor.details)
+                        .accessibilityLabel("Details: \(liquor.details)")
                 }
                 
-                Section(header: Text("Snack Pairings").font(.headline)) {
-                    PairingsView(items: liquor.pairings.snacks)
+                // Snack Pairings
+                Section(header: Text("Snack Pairings")
+                    .font(.headline)
+                    .accessibilityLabel("Snack Pairings Section")) {
+                    PairingsView(items: liquor.pairings.snacks, pairingType: "Snack")
                 }
                 
-                Section(header: Text("Food Pairings").font(.headline)) {
-                    PairingsView(items: liquor.pairings.foods)
+                // Food Pairings
+                Section(header: Text("Food Pairings")
+                    .font(.headline)
+                    .accessibilityLabel("Food Pairings Section")) {
+                    PairingsView(items: liquor.pairings.foods, pairingType: "Food")
                 }
             }
             .padding()
+            .accessibilityElement(children: .contain) // Allows all children elements to be accessible
         }
+        .accessibilityLabel("\(liquor.name) details")
+        .accessibilityHint("Contains details, snack pairings, and food pairings for \(liquor.name)")
     }
 }
 
 struct PairingsView: View {
     let items: [String]
+    let pairingType: String
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
@@ -45,8 +74,15 @@ struct PairingsView: View {
                         .padding()
                         .background(Color.secondary.opacity(0.1))
                         .cornerRadius(8)
+                        .accessibilityLabel("\(pairingType) pairing: \(item)")
+                        .accessibilityHint("This is a recommended \(pairingType.lowercased()) for the liquor")
                 }
             }
         }
+        .accessibilityElement(children: .contain) // Makes pairings accessible as separate elements
     }
+}
+
+#Preview {
+    LiquorDetailView(liquor: Liquor.sampleLiquors()[0])
 }
