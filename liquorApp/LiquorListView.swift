@@ -8,29 +8,26 @@
 import SwiftUI
 import SwiftData
 
-import SwiftUI
-
 struct LiquorListView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel: LiquorViewModel
     
     init(modelContext: ModelContext) {
-        let viewModelInstance = LiquorViewModel(modelContext: modelContext)
-        _viewModel = StateObject(wrappedValue: viewModelInstance)
+        _viewModel = StateObject(wrappedValue: LiquorViewModel(modelContext: modelContext))
     }
     
     var body: some View {
         ZStack {
-            Color.burgundy.ignoresSafeArea() // App background
+            Color.burgundy.ignoresSafeArea()
             
-            VStack(alignment: .leading, spacing: 16) { // Uniform spacing
+            VStack(alignment: .leading, spacing: 16) {
                 // Title
                 Text("Liquor Guide")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.lightCream)
                     .padding(.horizontal)
-                    .padding(.top, 20) // Top padding based on HIG
+                    .padding(.top, 20)
                 
                 // Search Bar
                 SearchBar(text: $viewModel.searchText)
@@ -50,19 +47,25 @@ struct LiquorListView: View {
                     .padding(.horizontal)
                 }
                 
-                // Liquor Cards List
+                // Liquor List
                 ScrollView {
-                    VStack(spacing: 16) { // Consistent spacing between cards
-                        ForEach(viewModel.filteredLiquors, id: \.id) { liquor in
-                            NavigationLink(destination: LiquorDetailView(liquor: liquor)) {
-                                LiquorRowView(liquor: liquor)
+                    if viewModel.filteredLiquors.isEmpty {
+                        Text("No liquors available.")
+                            .foregroundColor(.lightCream)
+                            .padding()
+                    } else {
+                        VStack(spacing: 16) {
+                            ForEach(viewModel.filteredLiquors, id: \.id) { liquor in
+                                NavigationLink(destination: LiquorDetailView(liquor: liquor)) {
+                                    LiquorRowView(liquor: liquor)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .buttonStyle(PlainButtonStyle()) // Removes NavigationLink styling
                         }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
-                    .padding(.bottom, 20) // Bottom padding for HIG compliance
                 }
+                .padding(.bottom, 20)
             }
         }
         .navigationTitle("")

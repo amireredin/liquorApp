@@ -8,8 +8,11 @@
 import Foundation
 import SwiftData
 
+import Foundation
+import SwiftData
+
 @Model
-class Liquor: Identifiable {
+class Liquor: Identifiable, Codable { // Codable ensures JSON compatibility
     @Attribute(.unique) var id: UUID = UUID()
     var name: String
     var type: String
@@ -22,7 +25,12 @@ class Liquor: Identifiable {
         var snacks: [String]
         var foods: [String]
     }
-    
+
+    enum CodingKeys: CodingKey {
+        case id, name, type, brand, details, pairings, imageFileName
+    }
+
+    // SwiftData initializer
     init(name: String, type: String, brand: String, details: String,
          pairings: Pairings, imageFileName: String? = "placeholder") {
         self.name = name
@@ -32,23 +40,27 @@ class Liquor: Identifiable {
         self.pairings = pairings
         self.imageFileName = imageFileName
     }
-}
 
+    // Codable methods
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
+        self.name = try container.decode(String.self, forKey: .name)
+        self.type = try container.decode(String.self, forKey: .type)
+        self.brand = try container.decode(String.self, forKey: .brand)
+        self.details = try container.decode(String.self, forKey: .details)
+        self.pairings = try container.decode(Pairings.self, forKey: .pairings)
+        self.imageFileName = try container.decodeIfPresent(String.self, forKey: .imageFileName)
+    }
 
-extension Liquor {
-    static func sampleLiquors() -> [Liquor] {
-        return [
-            Liquor(
-                name: "Johnnie Walker Black Label",
-                type: "Whiskey",
-                brand: "Johnnie Walker",
-                details: "A blended Scotch whisky with smoky and sweet flavors.",
-                pairings: Pairings(
-                    snacks: ["Dark chocolate", "Smoked nuts"],
-                    foods: ["Grilled steak", "Cheese platter"]
-                ),
-                imageFileName: "johnnie_walker_black_label.jpg"
-            )
-        ]
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(type, forKey: .type)
+        try container.encode(brand, forKey: .brand)
+        try container.encode(details, forKey: .details)
+        try container.encode(pairings, forKey: .pairings)
+        try container.encode(imageFileName, forKey: .imageFileName)
     }
 }

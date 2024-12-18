@@ -118,6 +118,3 @@ struct PairingsView: View {
     }
 }
 
-#Preview {
-    LiquorDetailView(liquor: Liquor.sampleLiquors()[0])
-}
