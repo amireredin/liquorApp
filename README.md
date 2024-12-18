@@ -1,8 +1,6 @@
-Here’s a short and simple README for your project:
+# **Spirited**
 
-# **Liquor Guide App**
-
-Liquor Guide is a modern iOS app built with **SwiftUI** to help users explore and learn about various liquors, including whiskey, vodka, gin, tequila, rum, and cognac. The app provides detailed descriptions, search functionality, filtering, and pairing suggestions.
+Spirited is a modern iOS app built with **SwiftUI** to help users explore and learn about various liquors, including whiskey, vodka, gin, tequila, rum, and cognac. The app provides detailed descriptions, search functionality, filtering, and pairing suggestions.
 
 ---
 
