@@ -26,6 +26,7 @@ struct ContentView: View {
         NavigationStack {
             LiquorListView(modelContext: modelContext)
         }
+        .tint(.amberGold)
     }
 }
 
